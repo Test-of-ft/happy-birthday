@@ -1,4 +1,4 @@
-// 全局变量
+// Global variables
 const birthdayMap = {
     2024: "2024-12-04",
     2025: "2025-12-04",
@@ -13,69 +13,69 @@ const $main = $(".main")
 let intervalId = null
 let snowflakes = null
 
-// 页面加载完成
+// Page loaded
 $(document).ready(function () {
-    // 雪花飞舞
+    // Snowflakes falling
     snowflakes = new Snowflakes({
-        color: "#ffd700",
-        minSize: 20,
+        color: "#ffd700", // Snowflakes color
+        minSize: 20,      // Minimum snowflake size
     })
-    // 淡出内容
+    // Fade out content
     $main.fadeOut(1)
-    // 生日倒计时
+    // Birthday countdown
     intervalId = setInterval(birthdayCountdown, 1000)
-    // 按钮点击
+    // Button click
     $btn.click(pageRender)
 })
 
 function birthdayCountdown() {
-    // 获取当前时间和今年生日
+    // Get current time and this year's birthday
     const now = dayjs()
     const curYearStr = now.format("YYYY")
     let birthday = dayjs(birthdayMap[curYearStr])
 
-    // 生日当天关闭倒计时，解锁按钮支持可点击
+    // On the birthday, stop the countdown, unlock button to make it clickable
     if (now.format("YYYY-MM-DD") === birthday.format("YYYY-MM-DD")) {
         clearInterval(intervalId)
-        $btn.text("来吧，展示")
+        $btn.text("Come on, show it")
         $btn.prop("disabled", false)
         return
     }
 
-    // 今年生日已过则计算距明年生日的时间: before - birthday < now - after
+    // If this year's birthday has passed, calculate the time until next year's birthday
     if (now.isAfter(birthday)) {
         birthday = dayjs(birthdayMap[parseInt(curYearStr) + 1])
     }
 
-    // 计算与目标日期的差值（秒），并转换成天、时、分、秒
+    // Calculate the difference between now and the target date (in seconds), and convert it to days, hours, minutes, and seconds
     const diffInSeconds = birthday.diff(now, "second")
     const days = Math.floor(diffInSeconds / (3600 * 24))
     const hours = Math.floor((diffInSeconds % (3600 * 24)) / 3600)
     const minutes = Math.floor((diffInSeconds % 3600) / 60)
     const seconds = diffInSeconds % 60
 
-    // 构建时间字符串
+    // Build time string
     const timeStrArr = []
     if (days > 0) {
-        timeStrArr.push(`${days}天`)
+        timeStrArr.push(`${days} days`)
     }
     if (hours > 0 || days > 0) {
-        timeStrArr.push(`${hours}时`)
+        timeStrArr.push(`${hours} hours`)
     }
     if (minutes > 0 || hours > 0 || days > 0) {
-        timeStrArr.push(`${minutes}分`)
+        timeStrArr.push(`${minutes} minutes`)
     }
-    timeStrArr.push(`${seconds}秒`)
+    timeStrArr.push(`${seconds} seconds`)
 
-    $btn.text(diffInSeconds <= 0 ? "指定日期生日已过" : timeStrArr.join(""))
+    $btn.text(diffInSeconds <= 0 ? "The specified birthday has passed" : timeStrArr.join(""))
 }
 
 function pageRender() {
-    // 关闭雪花、淡出封面
+    // Close snowflakes, fade out cover
     snowflakes.destroy()
     $(".birth-cover-container").fadeOut(1500)
 
-    // 淡入内容、播放歌曲、放飞气球、展示祝词
+    // Fade in content, play song, release balloons, show greeting
     $main.fadeIn("slow")
     $(".song")[0].play()
     $(".brith-balloon").animate({ top: -500 }, 8000)
@@ -86,4 +86,3 @@ function pageRender() {
         loop: true,
     })
 }
-
