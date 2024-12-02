@@ -1,4 +1,4 @@
-<html lang="zh-CN">
+<html lang="en">
 
 <head>
     <meta charset="utf-8">
@@ -10,63 +10,63 @@
 </head>
 
 <body>
-    <!-- 封面 -->
+    <!-- Cover -->
     <div class="container">
         <div class="row">
             <div class="birth-cover-container">
-                <button id="birth-start-btn" disabled>加载中...</button>
+                <button id="birth-start-btn" disabled>Loading...</button>
             </div>
         </div>
     </div>
 
-    <!-- 歌曲 -->
+    <!-- Song -->
     <audio class="song" controls loop style="display: none; opacity: 0">
         <source src="music/index.mp3" />
     </audio>
 
-    <!-- 彩带 -->
+    <!-- Confetti -->
     <canvas id="brith-confetti"></canvas>
 
-    <!-- 主内容 -->
+    <!-- Main Content -->
     <div class="main">
         <div class="container pt-5">
             <div class="row">
-                <!-- 横幅图 -->
+                <!-- Banner Image -->
                 <div class="col-12 col-xl-6 mx-auto">
                     <img src="img/banner.png" alt="banner.png">
                 </div>
 
-                <!-- 寿星 -->
-                <div class="col-12  text-center">
+                <!-- Birthday Person -->
+                <div class="col-12 text-center">
                     <div id="name" class="birth-people-name">Lily</div>
                 </div>
 
-                <!-- 祝词 -->
+                <!-- Greeting -->
                 <div class="col-12 text-center">
                     <div class="birth-greeting-word">
                         <div id="greeting-word" class="typing">
-                            <h2><span>生日快乐呀，</span><i id="inline-name" class="birth-inline-people-name">莉莉</i><span id="people-type">小姐姐</span></h2>
-                            <h2>且喜且乐，且以永日</h2>
-                            <h2>一寸一礼，一寸欢喜</h2>
-                            <h2>遥叩芳辰，生辰吉乐</h2>
+                            <h2><span>Happy Birthday,</span><i id="inline-name" class="birth-inline-people-name">Lily</i><span id="people-type">Sister</span></h2>
+                            <h2>Rejoice and be happy, and let the days go on</h2>
+                            <h2>With each inch, a gesture; with each inch, happiness</h2>
+                            <h2>Bow to this fragrant day, wishing you joy on your birthday</h2>
                         </div>
                         <span id="typed" style="white-space: pre;"></span>
                     </div>
                 </div>
 
-                <!-- 蛋糕图 -->
+                <!-- Cake Image -->
                 <div class="col-12 col-xl-3 birth-cake">
                     <img src="img/cake.gif" alt="cake.gif">
                 </div>
 
-                <!-- 版权 -->
+                <!-- Copyright -->
                 <div class="col-12 text-center">
                     <span class="birth-greeting-word" id="author">&copy;2024 Spring-_-Bear</span>
                 </div>
             </div>
         </div>
 
-        <!-- 气球图 -->
+        <!-- Balloon Image -->
         <img src="img/balloon.png" alt="balloon" class="brith-balloon">
     </div>
 
