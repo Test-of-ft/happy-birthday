@@ -57,15 +57,15 @@ function birthdayCountdown() {
     // Build time string
     const timeStrArr = []
     if (days > 0) {
-        timeStrArr.push(`${days} days`)
+        timeStrArr.push(`${days} days `)
     }
     if (hours > 0 || days > 0) {
-        timeStrArr.push(`${hours} hours`)
+        timeStrArr.push(`${hours} hours `)
     }
     if (minutes > 0 || hours > 0 || days > 0) {
-        timeStrArr.push(`${minutes} minutes`)
+        timeStrArr.push(`${minutes} minutes `)
     }
-    timeStrArr.push(`${seconds} seconds`)
+    timeStrArr.push(`${seconds} seconds `)
 
     $btn.text(diffInSeconds <= 0 ? "The specified birthday has passed" : timeStrArr.join(""))
 }
